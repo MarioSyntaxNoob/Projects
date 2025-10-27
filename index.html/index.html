@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"> <!-- Türkçe karakterlerin düzgün görüntülenmesi için eklendi -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive (mobil uyumlu) tasarım için eklendi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      font-family: "Roboto Mono", sans-serif;
+    }
+    button, li,{
+	cursor: pointer;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background-color: #00ffef;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+     button, ul, li{
+	cursor: pointer;
+    }
+    .cont {
+      background-color: #080808;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 10;
+      border-radius: 10px;
+      overflow: hidden; /* İçerik taşmasını engellemek ve yuvarlak köşelerden taşan görüntüyü kesmek için eklendi */
+      display:flex;
+      flex-direction: column;
+      	
+    }
+
+    .navbar {
+      border-radius: 20px 20px 0px 0px;
+      position: relative; /* Yazım hatası düzeltildi: "relativ" değil "relative" */
+      top: 0;
+      padding: 0 40px; /* Sağa ve sola eşit boşluk vermek için eklendi */
+      height: 80px;
+      background-color: #080808;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 5;
+      border-width: 0px 0px 5px 0px;
+      border-style: solid;
+      border-color: #00ffef;
+    }
+
+    .items ul {
+      display: flex;
+      justify-content: space-between;	
+      align-items: center;
+      gap: 40px;
+    }
+
+    .items ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 15px;
+      width: 100px;
+      height: 30px;
+      flex: 1;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .items ul li:hover{
+        transform: scale(1.5); /* %20 oranında büyür ama layout bozulmaz */
+  	background-color: #00ffef;
+  	border-radius: 20px;
+        color: black;
+    }
+
+    .navbar .search {
+      display: flex;
+      justify-content: center;
+      border-radius: 60px 0px 0px 60px; 
+    }
+
+    input[type="text"] {
+      width: 700px;
+      height: 50px;
+      border-radius: 60px 0px 0px 60px;
+      border: none;
+      font-size: 20px;
+      color: gray;
+      padding: 15px;
+      background-color: black;
+      border: 2px solid,  #00ffef;
+      cursor: pointer;
+
+
+    }
+     .navbar input:focus{
+	outline: none;
+	
+    }
+    .navbar input:focus::placeholder{
+	color: transparent;
+		
+    }
+    .navbar button {
+      width: 100px;
+      height: 50px;
+      border-radius: 0px 60px 60px 0px;
+      border: 2px solid,  #00ffef;
+      background-color: black;
+      color: #00ffef;
+      font-size: 20px;
+      cursor: pointer;
+      transition: font-size 0.5s ease;
+      transform-origin: center;
+
+    }
+    .navbar button:hover{
+	font-size: 35px;	
+    }
+    .navbar .logo h3::before {
+      content: "Metin ";
+      color: white;
+      font-size: 26px;
+    }
+
+   
+    .navbar .logo h3 {
+      color: #00ffef;
+      text-shadow:
+        0 0 15px hsl(177.58deg 97.64% 50.2%),
+        0 0 30px hsl(177.58deg 97.64% 50.2%),
+        0 0 60px hsl(177.58deg 97.64% 50.2%);
+    }
+
+    .mainpg {
+      display: flex;
+      background-color: #080808;
+      color: white;
+      justify-content: flex-start;
+      align-items: center; /* İçerikler üstten hizalansın */
+      width: 100%;
+      padding: 40px;
+      gap: 20px; /* Sol ve sağ içerik arasına boşluk */
+      height: calc(100% - 100px); /* Sayfanın geri kalan yüksekliği (navbar sonrası alan) */
+      position: relative; /* "absolute" kaldırıldı çünkü sabit yükseklik içerikle birlikte esnemeyi engelliyordu */
+    }
+
+    .mainsol p {
+      max-width: 600px; /* Satırların çok uzun olmaması için */
+      text-align: justify; /* Paragraf hizalama */
+      line-height: 1.6; /* Okunabilirliği artırmak için satır aralığı */
+    }
+    .mainsol, .mainsag{
+	padding-left: 200px;
+    }	
+    .mainsag img {
+      height: auto;          /* oran korunsun */
+      object-fit: contain;   /* taşma olmasın, sığsın */
+      max-height: auto;      /* yüksekliği de container'ı aşmasın */
+      border-radius: 10px;
+      width: 200%;
+    }
+
+    .mainpg .mainsol h1::before {
+      content: "MERHABA, ";
+      color: white;
+      font-size: 50px;
+    }
+
+    .mainpng .mainsol p {
+      display: inline-block;
+      text-align: justify; /* Yazım hatası: "text-aling" değil */
+    }
+     .mainpg .mainsol h2::after {
+      content: "Metin girin metin girin. ";
+      color: #00ffef;
+      font-size: 25px;
+    }
+    .mainpg .mainsol ul{
+	display: flex;
+	justify-content: space-right;
+	width: 50px;
+	height: auto;
+	border-radius: 100px;
+	padding-top: 20px;
+	gap: 20px;
+	
+    }
+    .mainpg .mainsol ul li button{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	flex: 1;
+	font-weight: bold;
+	font-size: 40px;
+	background-color: #080808;
+	color: #00ffef;
+	border: 1px solid, #00ffef;
+	transition: all .5s ease;
+	transform-origin: center;
+
+			
+    }
+    .mainpg .mainsol .bt1{
+	width: 100px;
+	height: 40px;
+	background-color: #00ffef;
+	color: #080808;
+	box-shadow: 0 0 15px hsl(177.58deg 97.64% 50.2%),
+         0 0 30px hsl(177.58deg 97.64% 50.2%),
+         0 0 60px hsl(177.58deg 97.64% 50.2%);
+	border-radius: 50px;
+	border: none;
+	margin-top: 25px;
+	font-size: 15px;
+	font-weight: bold;
+	transition: all .5s ease;
+	transform-origin: center;
+
+
+
+
+
+    }
+    .mainpg .mainsol .bt2{
+	width: 200px;
+	height: 40px;
+	background-color: #080808;
+	color:#00ffef;
+	border-radius: 50px;
+	border: 1px solid, #00ffef;
+	margin-top: 25px;
+	margin-left: 25px;
+	font-size: 15px;
+	font-weight: bold;
+	transition: all .5s ease;
+	transform-origin: center;
+
+
+
+
+    }
+	.mainpg .mainsol ul li button:hover{
+		background-color: #00ffef;
+		color: black;
+		border: 3px solid, white;
+		transform: scale(1.2);
+	}
+	.mainpg .mainsol ul li button:hover{
+		background-color: #00ffef;
+		color: black;
+		border: 3px solid, white;
+		transform: scale(1.2);
+
+	}
+	.mainpg .mainsol .bt2:hover{
+		background-color: #00ffef;
+		color: black;
+		border: 3px solid, white;
+		transform: scale(1.2);
+
+	}
+	.mainpg .mainsol .bt1:hover{
+		background-color: black;
+		color: #00ffef;
+		border: 3px solid, white;
+		transform: scale(1.2);
+
+	}
+
+
+	
+
+
+  </style>
+</head>
+
+<body>
+  <div class="cont">
+    <div class="navbar">
+      <div class="logo">
+        <h3>Girin</h3>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Site içerisinde arama">
+        <button>Ara</button>
+      </div>
+      <div class="items">
+        <ul>
+          <li>Anasayfa</li>
+          <li>Hakkımızda</li> <!-- Aynı menüleri tekrar etmek yerine örnek başlıklar kullanıldı -->
+          <li>Hizmetler</li>
+          <li>İletişim</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mainpg">
+      <div class="mainsol">
+        <h1 style="color: white;">Metin Girin</h1><br>
+	<h2> Ben </h3><br>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+        </p>
+	<ul>
+		<li> <button> a </button> </li>
+		<li> <button> a </button> </li>
+		<li> <button> a </button> </li>
+		<li> <button> a </button> </li>
+
+	</ul>
+	<button class="bt1"> CV </button>
+	<button class="bt2"> Bana ulaş </button>
+      </div>
+      <div class="mainsag">
+        <img src="hq721.jpg">
+      </div>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

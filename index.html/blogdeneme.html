@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
+	<style>
+		:root{
+			--bej: #f3f2ee;
+			--backgroundgreen: #dbecc1;
+			--hovergreen: #cfdbca;
+			--baslikrenk: #2c3e50;
+		}
+		h1, h2, h3, h4, h5{
+			color: var(--baslikrenk);
+		}
+		*{
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			box-sizing: border-box;
+			font-family: sans-serif;
+			font-family: 'Lora', serif;
+
+		}
+		body{
+			min-height: 100vh;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 200px 100px 5fr 200px;
+			grid-template-areas: "header header header"
+						"nav nav nav"
+						"main main main"
+						"footer footer footer";
+			gap: 20px;
+			background-color: var(--bej);
+			padding: 2rem;
+
+		}
+		header, nav, main, footer{
+			margin: 10px;
+
+		}
+		header{
+			grid-area: header;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			line-height: 1.5;
+			background-color: var(--bej);
+			border: 1px solid green;
+
+
+		}
+		header h1, h2{
+			margin-bottom: 15px;
+			color: var(--baslikrenk);
+		}
+		header h1{
+			font-size: 50px;
+
+		}
+		header h2{
+			font-size: 30px;
+
+		}
+		nav{
+			grid-area: nav;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: sticky;
+			top: 20px;
+			background-color: var(--bej);
+			border: 1px solid green;
+			z-index: 2;
+
+		}
+		nav ul{
+			display: flex;
+
+			justify-content: space-around;
+			gap: 20px;
+			list-style: none;
+			margin: 15px;
+
+
+		}
+		nav ul li{
+			font-size: 20px;
+			padding-left: 15px;
+			background-color: #B7C9B7;
+			line-height: 50px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: bold;
+			position: relative;
+			width: 200px;
+
+
+		}
+		nav ul li:hover{
+			background-color: #8aa68a;
+			transform: scale(1.05);
+			color: white;
+		}
+		nav ul li a{
+			color: white;
+			font-size: 25px;
+			display: block;
+		}
+		main{
+			grid-area: main;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr;
+			border: 1px solid green;
+		}
+		footer{
+			grid-area: footer;
+		}
+		.contenthead{
+			display: flex;
+			justify-content: space-between;
+			border: 1px solid brown;
+			border-radius: 15px;
+			margin: 15px;
+								}
+		.headbox{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 20px;
+			text-align: justify;
+						gap: 15px;
+			
+		}
+		.headbox i{
+			font-weight: bold;
+			color: var(--baslikrenk);
+			font-size: 20px;
+		}
+		figure{
+			max-width: 800px;
+			margin: 10px;
+			display: flex;
+			flex-direction: column;
+
+		}
+		figure img{
+			width: 100%;
+		}
+		figcaption{
+			margin-top: 25px;
+			text-align: center;
+			color: #505e6c;
+			display: block;
+			line-height: 25px;
+			padding: 10px;
+			border: 1px solid green;
+			border-radius: 10px;
+			background-color: #f5f1e9;
+			font-weight: bold;
+			font-size: 17px;
+			width: 400px;
+		}
+		.content{
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 50px;
+			margin: 30px;
+
+
+
+		}
+		.icerik{
+			height: 200px;
+			border-radius: 15px;
+			background-color: #f3f2e9;
+			box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+			cursor: pointer;
+			transition: all 0.3s ease;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 1px solid #e9e0be;
+			font-weight: 900;
+			color: #2c3e50;
+			font-size: 25px;
+
+		}
+		.icerik:hover{
+			background-color: #cfdbca;
+			transform: scale(1.1);
+			color: white;
+		}
+		footer{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			border: 1px solid green;
+		}
+		footer section ul{
+			display: flex;
+			gap: 50px;
+			max-width: 1500px;
+			width: 100%;
+			justify-content: space-between;
+			list-style: none;
+			margin-bottom: 50px;
+		}
+		footer section ul li{
+			font-size: 20px;
+			background-color: #B7C9B7;
+			line-height: 50px;
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: bold;
+			position: relative;
+			padding-left: 15px;
+			width: 200px;
+
+		}
+		footer section ul li a{
+			display: block;
+			color: white;
+			font-size: 20px;
+		}
+		footer section ul li:hover{
+			transform: scale(1.05);
+			color: white;
+			background-color: #8aa68a;
+		}
+		@media(max-width: 768px){
+			
+			nav ul{
+				flex-direction: row;
+				align-items: center;
+			}
+			nav ul li{
+				width: auto;
+				text-align: center;
+				font-size: 15px;
+			}
+			main .contenthead{
+				flex-direction: column-reverse;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				
+			}
+			main .contenthead .headbox *{
+				font-size: 15px;
+				line-height: 1.5;
+			}
+			.contentheadfigure img{
+				width: 100%;
+				overflow: hidden;
+			}
+			main .contenthead figure{
+				align-items: center;
+			}
+			main .contenthead figure figcaption{
+				width: 100%;
+				margin-bottom: 5px;
+			}
+
+		
+
+		}
+	</style>
+</head>
+<body>	
+	<header>
+		<h1>DOĞA VE YAŞAM</h1>
+		<h2>Doğaya dair ilham veren yazılar</h2>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">Anasayfa</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Hakkımızda</a></li>
+			<li><a href="#">İletişim</a></li>
+
+		</ul>
+	</nav>
+	<main>
+		<section class="contenthead">
+			<div class="headbox">
+				<h1>Doğada ilham var.</h1>
+				<h3>Her yaprak bir hikaye, her rüzgar bir ilham taşır. Aşağıda sizin için derlediğimiz yazılarda doğanın büyüsünü keşfedin.</h3>
+				<p>Bu bölümde; doğa yürüyüşlerinden kamp deneyimlerine, mevsimlerin ruh halimize etksinden bitki yetiştirmenin huzuruna kadar birçok konuda yazılar bulacaksınız.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores commodi debitis iste nemo, nobis numquam praesentium qui quibusdam saepe tempora temporibus ullam velit voluptas voluptatibus! Est ex necessitatibus nesciunt nulla perspiciatis quam unde voluptates. Aliquid autem consequatur dolore ea est labore, magnam nemo nihil nisi, nobis numquam quas quis quod, totam voluptas! Aliquid inventore molestiae vitae? Amet aperiam consequatur dolore modi molestiae recusandae sit. Aliquid cupiditate fuga ipsum molestias nihil, nobis nulla officia perferendis, provident rem saepe sit soluta temporibus tenetur voluptas. Beatae consequatur debitis, ipsa laudantium necessitatibus pariatur perferendis quidem. Aut distinctio molestiae numquam quaerat, quia quidem sit.</p>
+				<i>-"Modern hayatın karmaşasında doğa, bize unuttuğumuz sadeliği hatırlatır."</i>
+			</div>
+			<figure>
+				<img src="images.jpeg">
+				<figcaption><i>"Tabiatı seviniz. Onu tahrip etmeyiniz." <br>-Mustafa Kemal Atatürk</i></figcaption>
+			</figure>
+
+
+		</section>
+		<section class="content">
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+			<article class="icerik">İÇERİK ALANI</article>
+
+
+
+
+
+		</section>
+	</main>
+	<footer>
+		<section class="accoutns">
+			<ul>
+				<li><a href="">Instagram</a></li>
+				<li><a href="">Twitter</a></li>
+				<li><a href="">Youtube</a></li>
+				<li><a href="">Facebook</a></li>
+				<li><a href="">LınkedIn</a></li>
+			</ul>
+		</section>
+		<h3>© 2025 Doğa ile Yaşam | Tüm hakları saklıdır.</h3>
+	</footer>
+
+
+<script>
+	
+</script>
+</body>
+</html>
+

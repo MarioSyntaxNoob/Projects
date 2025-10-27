@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    
+   
+.container {
+    
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+nav {
+    background-color: #f3f3f3;
+    color: #fff;
+    padding: 10px 0;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+.side-item {
+    gap:20px;
+    display: flex;
+    justify-content: center;
+}
+.side-item button {
+    background-color: #bb9c9c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    background-color: aqua;
+    cursor: pointer;
+}
+main{
+    margin-top: 60px;
+    padding: 20px;
+}
+section {
+    padding: 20px;
+   
+    margin: 20px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.first-sect {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    line-height: 3rem;
+}
+.first-sect header span {
+    font-size: 0.7rem;
+    color: #555;
+    border: #333 1px solid;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+} 
+.first-sect header h2 {
+    font-size: 3rem;
+    color: #333;
+}
+.first-sect header h1 {
+    font-size: 3rem;
+    color: #c41414;
+}
+.info-box {
+   
+    border: 1px solid #b2ebf2;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5rem !important;
+    width: 80%;
+    font-size: 1.2rem;
+}
+.buy-box {
+   
+    color: #0c0000;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.price {
+    display: flex;
+    align-items: center;
+}
+.price h1 span {
+    font-size: 0.8rem;
+    color: #c41414;
+}
+.price h1 {
+   display: flex;
+   flex-direction: column;
+   font-size: 2.7rem;
+   border-right: 1px solid #0c0000;
+   padding: 1.5rem
+}
+.price p {
+    font-size: 0.98rem;
+    color: #0e0000;
+   padding: 1.5rem;
+}
+.buy-button {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 1.5rem;
+}
+.buy-button button {
+    background-color: #c41414;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    height: 3.5rem;
+    border-radius: 7px;
+}
+article ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    font-size: 0.9rem;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+.card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}

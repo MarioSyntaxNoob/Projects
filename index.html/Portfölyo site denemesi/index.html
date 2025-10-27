@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kronometre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0078d4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="display">00:00:00</h1>
+        <button onclick="start()">Başlat</button>
+        <button onclick="stop()">Durdur</button>
+        <button onclick="reset()">Sıfırla</button>
+    </div>
+
+    <script>
+        let [seconds, minutes, hours] = [0, 0, 0];
+        let display = document.getElementById("display");
+        let timer = null;
+
+        function stopwatch() {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes === 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+
+            let h = hours < 10 ? "0" + hours : hours;
+            let m = minutes < 10 ? "0" + minutes : minutes;
+            let s = seconds < 10 ? "0" + seconds : seconds;
+
+            display.innerHTML = `${h}:${m}:${s}`;
+        }
+
+        function start() {
+            if (timer !== null) {
+                clearInterval(timer);
+            }
+            timer = setInterval(stopwatch, 1000);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+        function reset() {
+            clearInterval(timer);
+            [seconds, minutes, hours] = [0, 0, 0];
+            display.innerHTML = "00:00:00";
+        }
+    </script>
+</body>
+</html>
