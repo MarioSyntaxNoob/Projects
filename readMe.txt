@@ -1,1 +1,1 @@
-Linux'tan gitHub'a selamlar!
+Linux'tan GitHub'a selamlar!
