@@ -1,7 +1,0 @@
-node_modules/
-.vscode/
-*zip
-*.txt
-AppData/
-dist/
-build/
